@@ -1,0 +1,83 @@
+{
+  "expo": {
+    "name": "MySpot Music",
+    "slug": "myspot-music",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/images/icon.png",
+    "scheme": "myspotmusic",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./src/assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#121212"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.myspot.myspotmusic",
+      "infoPlist": {
+        "NSAppleMusicUsageDescription": "MySpot Music needs access to your music library to play your local songs.",
+        "NSPhotoLibraryUsageDescription": "MySpot Music needs access to photos to set album artwork."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/images/adaptive-icon.png",
+        "backgroundColor": "#121212"
+      },
+      "package": "com.myspot.myspotmusic",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_MEDIA_LOCATION"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./src/assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos to set album artwork.",
+          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save album artwork.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ],
+      [
+        "react-native-track-player",
+        {
+          "capabilities": [
+            "play",
+            "pause",
+            "skipToNext",
+            "skipToPrevious",
+            "stop"
+          ],
+          "notificationCapabilities": [
+            "play",
+            "pause",
+            "skipToNext",
+            "skipToPrevious"
+          ],
+          "dataCapability": [
+            "play",
+            "pause",
+            "skipToNext",
+            "skipToPrevious"
+          ],
+          "alwaysPauseOnInterruption": false,
+          "pauseButtonBehavior": "pause"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
